@@ -1,11 +1,9 @@
 import re
 import os
 import pandas as pd
-import seaborn as sns
 
 folder = os.path.join(os.getcwd(),'..','data','korpus')
 subjects = ['Parliament']
-
 
 for sbj in subjects:
     data = []
@@ -21,7 +19,12 @@ for sbj in subjects:
             for l in lines:
                 d = l.split('\t')
                 
-                if len(d) > 1:
+                #Start and End Token
+                if len(d) == 1:
+                    if re.search(r'<s id="[0-9]*">', d[0]): data.append(['<s>','START',None,None])
+                    elif re.search(r'</s>', d[0]):          data.append(['</s>','END',None,None])
+                
+                elif len(d) > 1:
                     d[-1] = d[-1][:-1]
                     data.append(d)
                     
