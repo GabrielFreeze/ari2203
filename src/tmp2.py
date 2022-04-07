@@ -4,8 +4,8 @@ import pandas as pd
 import seaborn as sns
 
 folder = os.path.join(os.getcwd(),'..','data','korpus')
-# subjects = ['Academic','Culture','European','Law','News',
-#             'Opinion','Parliament','Religion','Sport']
+subjects = ['Academic','Culture','European','Law','News',
+            'Opinion','Parliament','Religion','Sport']
 subjects = []
 
 with open(os.path.join(folder,'korpus.csv'), 'w', encoding='utf-8') as f1:

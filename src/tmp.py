@@ -21,7 +21,7 @@ for sbj in subjects:
                 
                 #Start and End Token
                 if len(d) == 1:
-                    if re.search(r'<s id="[0-9]*">', d[0]): data.append(['<s>','START',None,None])
+                    if   re.search(r'<s id="[0-9]*">', d[0]): data.append(['<s>','START',None,None])
                     elif re.search(r'</s>', d[0]):          data.append(['</s>','END',None,None])
                 
                 elif len(d) > 1:
